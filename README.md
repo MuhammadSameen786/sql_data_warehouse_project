@@ -39,3 +39,11 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
 ---
+
+## 🛡️ License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+
+## 🌟 About Me
+
+Hi there! I'm **Muhammad Sameen**, I’m an BS IT Student and passionate about excel my career in data engineering field and this project is by **Data with baraa** he's an IT professional and data engineer at mercedez benz!
