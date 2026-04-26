@@ -5,6 +5,8 @@ select * from silver.crm_cust_info;
 select * from silver.erp_cust_az12;
 Select * from silver.erp_loc_a101;
 
+IF OBJECT_ID ('gold.dim_customer', V) IS NOT NULL
+	DROP VIEW gold.dim_customer;
 CREATE VIEW gold.dim_customer AS
 SELECT
 	ROW_NUMBER() OVER (ORDER BY cst_id) AS customer_key, --surrogated key
@@ -29,6 +31,8 @@ ON ci.cst_key = la.cid;
 SELECT * FROM silver.crm_prd_info;
 SELECT * FROM silver.erp_px_cat_g1v2;
 
+IF OBJECT_ID ('gold.dim_products', V) IS NOT NULL
+	DROP VIEW gold.dim_products;
 CREATE VIEW gold.dim_products AS
 SELECT 
 	ROW_NUMBER() OVER (ORDER BY pn.prd_start_dt, pn.prd_key) AS product_key,
@@ -48,6 +52,8 @@ ON pn.cat_id = pc.id
 WHERE pn.prd_end_dt IS NULL; --Null means it's current data
 
 -- GOLD LAYER - CREATE FACT SALES
+IF OBJECT_ID ('gold.fact_sales', V) IS NOT NULL
+	DROP VIEW gold.fact_sales;
 CREATE VIEW gold.fact_sales AS
 SELECT 
 	sd.sls_ord_num AS order_number,
